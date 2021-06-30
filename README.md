@@ -14,7 +14,7 @@ app.config.globalProperties.$mightyJsSdk = window.mightyJsSdk;
 ### script 引入
 
 ```javascript
-<script src="mightyJsSdk/dist/mightyJsSdk.js" />
+<script src="mighty-js-sdk/dist/mightyJsSdk.js" />
 ```
 
 ### 使用(webview 内嵌页面、H5 浏览器调用场景)
