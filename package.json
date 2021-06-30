@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "description": "H5 SDk for mighty merchants",
   "main": "mightyJsSdk.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamchan123/mighty-js-sdk.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
