@@ -14,14 +14,14 @@ app.config.globalProperties.$mightyJsSdk = window.mightyJsSdk;
 ### script 引入
 
 ```javascript
-<script src="mighty-js-sdk/dist/mightyJsSdk.js" />
+<script src="mightyJsSdk/dist/mightyJsSdk.js" />
 ```
 
 ### 使用(webview 内嵌页面、H5 浏览器调用场景)
 
 #### 通用说明
 
-api 最后一个参数 options：唤起 app 失败或者成功的回调方法，默认唤起失败的回调方法是跳转到 Mighty 下载页
+api 最后一个参数 options 可选参数：唤起 app 失败或者成功的回调方法，默认唤起失败的回调方法是跳转到 Mighty 下载页
 
 ```javascript
 {
@@ -35,7 +35,7 @@ api 最后一个参数 options：唤起 app 失败或者成功的回调方法，
 ```javascript
 //@param String authToken  //商家授权token
 //@param Function Callback
-//@param Object? {callAppSuccess,callAppFail}
+//@param Object? {callAppSuccess,callAppFail} //可选参数
 //@response Object {code:stinrg,data:Object,message:string}
 mightyJsSdk.auth(
   authToken,
@@ -48,11 +48,8 @@ mightyJsSdk.auth(
 
 调用参数：
 
-```json
-{
-  "token": "477599683939872768",
-  "appId": "475070042590339072"
-}
+```
+"authToken": "477599683939872768"
 ```
 
 Callback 回调：
@@ -90,7 +87,7 @@ Callback 回调：
 ```javascript
 //@param String orderId
 //@param Function Callback
-//@param Object? {callAppSuccess,callAppFail}
+//@param Object? {callAppSuccess,callAppFail} //可选参数
 //@response Object {code:stinrg,data:Object,message:string}
 mightyJsSdk.pay(
   orderId,
@@ -186,7 +183,7 @@ Callback 回调：
 #### 分享
 
 ```javascript
-/* 
+/*
   @param Object {shared_desc,shared_url,shared_cover_url,app_id,shared_type,shared_name}
   param detail:
   shared_desc        商品详情介绍
@@ -194,14 +191,23 @@ Callback 回调：
   shared_cover_url   封面图
   app_id             商户appId
   shared_type        1:小程序 2:链接分享 3：小程序商品
+  share_target       1是分享到好友, 2是分享到动态
 
   @param Function Callback
-  @param Object? {callAppSuccess,callAppFail}
+  @param Object? {callAppSuccess,callAppFail} //可选参数
   @response Object {code:stinrg,data:Object,message:string}
 */
 
 mightyJsSdk.share(
-  { token, appId },
+    {
+    shared_desc,
+    shared_url,
+    shared_cover_url,
+    app_id,
+    shared_type,
+    shared_name,
+    shared_target,
+  },,
   (result) => {
     console.log(result);
   },
@@ -218,7 +224,8 @@ mightyJsSdk.share(
   "shared_cover_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoIJQVHQ8NtlS02Vtno0b81X9BQNkg34e1tg&usqp=CAU",
   "app_id": "475070042590339072",
   "shared_type": "2",
-  "shared_name": "来看看"
+  "shared_name": "来看看",
+  "shared_target": "1"
 }
 ```
 

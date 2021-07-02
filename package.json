@@ -1,6 +1,6 @@
 {
   "name": "mighty-js-sdk",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "H5 SDk for mighty merchants",
   "main": "mightyJsSdk.js",
   "repository": {
